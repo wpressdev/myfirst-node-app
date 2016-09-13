@@ -178,15 +178,9 @@ app.get('/signout', function(req, res){
   req.logout();
   res.redirect('/signin');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 });
-app.get('/', function(request, response) {
-  response.render('./routes/index');
-});
-app.get('/signin', function(request, response) {
-  response.render('./routes/signin');
-});
-app.get('/feedbacks', function(request, response) {
-  response.render('./routes/feedbacks');
-});
+app.use('/', routes);
+app.use('/signin', signin);
+app.use('/feedbacks', feedbacks);
 
 
 // Error Handlers
